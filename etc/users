@@ -1,0 +1,2 @@
+test@example.com:{plain}test::::::userdb_quota_rule=*:storage=100M userdb_noreplicate
+
