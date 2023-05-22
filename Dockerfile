@@ -55,6 +55,7 @@ RUN apk add --no-cache \
 	libexttextcat \
 	icu-libs \
 	libxapian \
+	openssh-client \
 	openssl1.1-compat \
 	rspamd-client \
 	tini
