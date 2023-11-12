@@ -3,8 +3,8 @@ ARG ALPINE_VERSION=3.18
 FROM alpine:$ALPINE_VERSION AS builder
 
 ARG ALPINE_VERSION
-ARG DOVECOT_VERSION=2.3.20
-ARG PIGEONHOLE_VERSION=0.5.20
+ARG DOVECOT_VERSION=2.3.21
+ARG PIGEONHOLE_VERSION=0.5.21
 
 RUN apk add --no-cache \
 	autoconf \
@@ -32,12 +32,12 @@ RUN git clone --depth 1 --branch $DOVECOT_VERSION https://github.com/dovecot/cor
 RUN cd /dovecot/core && \
 	./autogen.sh && \
 	PANDOC=false ./configure \
-		--prefix=/usr \
-		--sysconfdir=/etc \
-		--with-icu \
-		--with-rundir=/run/dovecot \
-		--with-stemmer \
-		--with-textcat && \
+	--prefix=/usr \
+	--sysconfdir=/etc \
+	--with-icu \
+	--with-rundir=/run/dovecot \
+	--with-stemmer \
+	--with-textcat && \
 	make install
 
 RUN git clone --depth 1 https://github.com/slusarz/dovecot-fts-flatcurve.git /dovecot/fts-flatcurve
